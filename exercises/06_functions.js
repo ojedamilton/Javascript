@@ -36,28 +36,28 @@ function suma2 (num1,num2){
 A la función suma del ejercicio 6b) agregarle una llamada que valide que los números sean enteros. 
 En caso que haya decimales mostrar un alerta con el error y retorna el número convertido a entero (redondeado).
 */
-function CallBackEnteros(num1) {
-    if (!Number.isInteger(num1)) {
-     alert('el numero ingresado es decimal');
-      var num1=Math.round(num1); 
-       return num1;
-    } 
-}
+function redondeo(num) {
+    if (!Number.isInteger(num)) {
+         alert('uno de los numeros ingresado es decimal '+num);
+        var num=Math.round(num);  
+    }
 
+    return num;
+}
  
 function suma3 (num1,num2){
-
-   // CallBackEnteros(num1,num2);
-
+     
     if (isNaN(num1)|| isNaN(num2)) {
         alert ('alguno de los parametros no es un numero');
         return 'Nan';
     }
+    num1=redondeo(num1);
+    num2=redondeo(num2);
     
-    var resultadoSuma= CallBackEnteros(num1) + CallBackEnteros(num2);
+    var resultadoSuma=num1 + num2;   
     return resultadoSuma;  
     
 }
 
-var validationSuma=suma3(4,5.4);
-console.log(validationSuma);  
+var validationSuma=suma3(4.6,6.5);
+alert('la suma total es '+validationSuma);  
